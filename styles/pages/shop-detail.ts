@@ -400,6 +400,10 @@ export const ShopDetail = styled.main`
         .actions {
           gap: 25px;
         }
+
+        .add-to-cart {
+          padding: 0 35px;
+        }
       }
     }
 
@@ -413,6 +417,19 @@ export const ShopDetail = styled.main`
 
     .information {
       gap: 18px;
+    }
+
+    .numbers-list {
+      gap: 13px;
+      margin-bottom: 18px;
+
+      button {
+      height: 54px;
+     }
+    }
+
+    .quantity-total .quantity {
+        height: 54px;
     }
   }
 
@@ -481,6 +498,10 @@ export const ShopDetail = styled.main`
         .actions {
           gap: 22px;
         }
+
+        .add-to-cart {
+          padding: 0 33px;
+        }
       }
 
       .box-information.flex {
@@ -492,6 +513,8 @@ export const ShopDetail = styled.main`
       .information {
         gap: 15px;
       }
+
+
     }
 
     .tabs-descricao {
@@ -500,6 +523,19 @@ export const ShopDetail = styled.main`
 
     .tabs-descricao + * {
       margin-top: 60px;
+    }
+
+    .numbers-list {
+      gap: 12px;
+      margin-bottom: 16px;
+      
+      button {
+      height: 52px;
+     }
+    }
+
+    .quantity-total .quantity {
+        height: 52px;
     }
   }
 
@@ -545,11 +581,28 @@ export const ShopDetail = styled.main`
         .actions {
           gap: 17px;
         }
+
+        .add-to-cart {
+          padding: 0 30px;
+        }
       }
 
       .information {
         gap: 12px;
       }
+    }
+
+    .numbers-list {
+      gap: 10px;
+      margin-bottom: 14px;
+      
+      button {
+      height: 48px;
+     }
+    }
+
+    .quantity-total .quantity {
+        height: 48px;
     }
   }
 
@@ -625,6 +678,10 @@ export const ShopDetail = styled.main`
         .actions {
           gap: 12px;
         }
+
+        .add-to-cart {
+          padding: 0 28px;
+        }
       }
 
       .rating {
@@ -638,6 +695,19 @@ export const ShopDetail = styled.main`
       .information {
         gap: 9px;
       }
+    }
+
+    .numbers-list {
+      gap: 9px;
+      margin-bottom: 12px;
+      
+      button {
+      height: 44px;
+     }
+    }
+
+    .quantity-total .quantity {
+        height: 44px;
     }
 
     .tabs-descricao {
@@ -782,6 +852,10 @@ export const ShopDetail = styled.main`
             font-size: 15px;
           }
         }
+
+        .add-to-cart {
+          padding: 0 20px;
+        }
       }
     }
 
@@ -832,6 +906,12 @@ export const ShopDetail = styled.main`
           }
         }
       }
+
+      .text {
+        .add-to-cart {
+          padding: 0 15px;
+        }
+      }
     }
 
     .swiper-produtos {
@@ -873,6 +953,12 @@ export const ShopDetail = styled.main`
               font-size: 10px;
             }
           }
+        }
+      }
+
+      .text {
+        .add-to-cart {
+          padding: 0 12px;
         }
       }
 
@@ -920,7 +1006,7 @@ export const ShopDetail = styled.main`
         .actions {
           a,
           button {
-            height: 30px;
+            height: 40px;
           }
 
           [class*="link-2"] {
