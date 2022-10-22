@@ -3,7 +3,7 @@ module.exports = {
   images: {
     domains: [
       "localhost",
-      "mikrokosmos.codie.digital",
+      "painel.zhaque.com.br",
     ],
     experimental: {
       forceSwcTransforms: true,
