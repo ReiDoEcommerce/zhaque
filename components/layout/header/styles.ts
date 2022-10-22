@@ -230,7 +230,7 @@ export const Header = styled.header<HeaderStyleProps>`
     }
 
     .logo {
-      max-width: 145px;
+      max-width: 92px;
     }
 
     .box-left {
