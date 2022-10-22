@@ -1,45 +1,38 @@
 import { useRef, useState } from "react";
 
+import { api } from "src/services/api";
+import { useAuth } from "src/contexts/Auth/authContext";
 import { getCookie, setCookie } from "src/utils/cookies";
 
-import { useAuth } from "src/contexts/Auth/authContext";
-
-import { ChangePassword } from "../change-password";
-import { ButtonComponent, Modal } from "components/data/components";
 import {
   Form,
   FormHandles,
   InputEditComponent,
   YupValidation,
-  SelectComponent,
 } from "components/inputs/core";
-
-import { genderOptions } from "src/utils/genderOptions";
+import { ButtonComponent, Modal } from "components/data/components";
 
 import * as S from "./styles";
-import { api } from "src/services/api";
 
 interface SubmitProps {
   name: string;
   surname: string;
   phone: string;
-  gender: string;
-  genderMobile: string;
-  genderDesktop: string;
 }
 
 export function EditMyDetails() {
   const [modalEditMyDetails, setModalEditMyDetails] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const formRef = useRef<FormHandles>(null);
+
   const { user } = useAuth();
 
   async function HandleSubmit({
     name,
     surname,
     phone,
-    gender,
   }: SubmitProps) {
     const Yup = await import("yup");
 
@@ -54,7 +47,6 @@ export function EditMyDetails() {
         phone: Yup.string()
           .required("Please enter a phone")
           .min(11, "Please enter a valid phone"),
-        gender: Yup.string().required("Please enter a gender."),
       });
 
       await schema.validate(
@@ -62,7 +54,6 @@ export function EditMyDetails() {
           name,
           surname,
           phone: phoneOnlyNumbers,
-          gender,
         },
         {
           abortEarly: false,
@@ -75,7 +66,6 @@ export function EditMyDetails() {
         name,
         surname,
         phone: phoneOnlyNumbers,
-        gender,
       });
 
       const userCookies = getCookie("user");
@@ -92,7 +82,6 @@ export function EditMyDetails() {
           name,
           surname,
           phone,
-          gender,
         };
 
         setCookie("user", JSON.stringify(value), 30);
@@ -189,8 +178,6 @@ export function EditMyDetails() {
           placeholder="Email"
           readOnly
         />
-
-        <SelectComponent optionsSelect={genderOptions} id="gender" name="gender" />
 
         <InputEditComponent
           id="birthday"

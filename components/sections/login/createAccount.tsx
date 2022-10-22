@@ -9,14 +9,10 @@ import {
   FormHandles,
   YupValidation,
   InputComponent,
-  RadioInput,
-  SelectComponent,
 } from "components/inputs/core";
 
-import { genderOptions } from "src/utils/genderOptions";
 import { useAuth } from "src/contexts/Auth/authContext";
 import { CreateAccountProps, AccountCreate } from "src/services/account";
-import { InputRadio } from "components/inputs/styles";
 
 export default function CreateAccountComponent() {
   const [loading, setLoading] = useState(false);
@@ -26,10 +22,6 @@ export default function CreateAccountComponent() {
   const { signIn } = useAuth();
   const formRef = useRef<FormHandles>(null);
 
-  interface FormSubmit extends CreateAccountProps {
-    gender: string;
-  }
-
   async function HandleSubmitCreateAccount({
     name,
     surname,
@@ -38,8 +30,7 @@ export default function CreateAccountComponent() {
     password,
     birthday,
     passwordConfirmation,
-    gender,
-  }: FormSubmit) {
+  }: CreateAccountProps) {
     const Yup = await import("yup");
 
     try {
@@ -64,7 +55,6 @@ export default function CreateAccountComponent() {
           [Yup.ref("password"), null],
           "As senhas não conferem."
         ),
-        gender: Yup.string().required("Por favor, escolha um gênero."),
       });
 
       await schema.validate(
@@ -76,7 +66,6 @@ export default function CreateAccountComponent() {
           birthday,
           password,
           passwordConfirmation,
-          gender,
         },
         {
           abortEarly: false,
@@ -93,7 +82,6 @@ export default function CreateAccountComponent() {
         birthday,
         password,
         passwordConfirmation,
-        gender,
       });
 
       await signIn({ email, password });
@@ -154,8 +142,6 @@ export default function CreateAccountComponent() {
         type="date"
         max={new Date().toISOString().split("T")[0]}
       />
-
-      <SelectComponent optionsSelect={genderOptions} name="gender" />
 
       <InputComponent
         id="passwordCreateAccount"

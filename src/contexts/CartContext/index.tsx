@@ -124,8 +124,7 @@ function CartProvider({ children }: ProvidersProps) {
         return;
       }
 
-      const newCart =
-        itensApi?.data?.itemsCart?.length > 0 ? itensApi.data.itemsCart : [];
+      const newCart = itensApi?.data?.itemsCart?.length > 0 ? itensApi.data.itemsCart : [];
 
       localStorage.setItem("guid", JSON.stringify(itensApi.data.cartGuid));
 

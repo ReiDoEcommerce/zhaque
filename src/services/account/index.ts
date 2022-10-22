@@ -16,7 +16,6 @@ export interface CreateAccountProps {
   password: string;
   birthday: string;
   passwordConfirmation: string;
-  gender: string;
 }
 
 async function AccountChangePassword(

@@ -7,7 +7,6 @@ import { ButtonComponent } from "components/data/button";
 
 import * as S from "./styles";
 
-
 interface OrderDetailProps {
   order: Order;
   isComplete?: boolean;
