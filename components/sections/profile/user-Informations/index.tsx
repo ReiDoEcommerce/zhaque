@@ -11,10 +11,6 @@ export function UserInformations() {
 
   return (
     <S.UserInformations>
-      <div className="image">
-        <NextImage src="" layout="fill" />
-      </div>
-
       <div className="text">
         <div className="box-left">
           {user?.name && <h3 className="title-6-bold-graphie">{user.name}</h3>}

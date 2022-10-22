@@ -28,7 +28,7 @@ export const EditMyDetails = styled.div`
     svg {
       width: 34px;
       height: auto;
-      fill: var(--secundary-color);
+      fill: var(--primary-color);
       margin-bottom: 5px;
     }
 

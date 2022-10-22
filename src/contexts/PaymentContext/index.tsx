@@ -77,17 +77,16 @@ function PaymentProvider({ children }: ProvidersProps) {
       )
     );
 
-    const totalPayment = ToMoney(
-      (subTotalWithCoupon || totalBruto) +
+    const totalPayment = (subTotalWithCoupon || totalBruto) +
         (statePayment.payment.shippingId
           ? statePayment.payment.shippingId.value
           : 0)
-    );
+  
 
     return {
       total: String(ToMoney(totalBruto)),
       numberItemsInCart,
-      totalPayment,
+      totalPayment: ToMoney(totalPayment + 0.99),
       continueToCheckout: false,
     };
   }, [

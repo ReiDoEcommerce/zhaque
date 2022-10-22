@@ -7,28 +7,15 @@ export const UserInformations = styled.div`
   padding: 30px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
 
-  .image {
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    overflow: hidden;
-
-    img {
-      height: inherit;
-      width: inherit;
-      object-fit: cover;
-      object-position: center center;
-    }
-  }
-
   .text {
-    width: calc(100% - 120px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #000;
+    width: 100%;
 
     h3 + * {
       margin-top: 2px;
@@ -64,20 +51,12 @@ export const UserInformations = styled.div`
       width: 80px;
       height: 80px;
     }
-
-    .text {
-      width: calc(100% - 110px);
-    }
   }
 
   @media only screen and (max-width: 1200px) {
     .image {
       width: 75px;
       height: 75px;
-    }
-
-    .text {
-      width: calc(100% - 105px);
     }
   }
 
@@ -105,8 +84,6 @@ export const UserInformations = styled.div`
     }
 
     .text {
-      width: calc(100% - 78px);
-
       .email {
         svg {
           width: 15px;
@@ -127,8 +104,6 @@ export const UserInformations = styled.div`
     }
 
     .text {
-      width: calc(100% - 65px);
-
       .email {
         gap: 5px;
 

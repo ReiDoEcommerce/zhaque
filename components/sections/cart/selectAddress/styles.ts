@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 export const SelectAddress = styled.div`
+margin-bottom: 15px;
 
 .address-actions {
     display: flex;
@@ -25,6 +26,13 @@ export const SelectAddress = styled.div`
        text-decoration: underline !important;
     }
 
+}
+
+.new-address-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 @media only screen and (max-width:1024px) {

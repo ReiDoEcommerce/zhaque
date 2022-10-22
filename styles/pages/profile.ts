@@ -3,6 +3,7 @@ import { lighten } from "polished";
 
 export const Profile = styled.section`
   padding: 55px 0 200px;
+  min-height: 60vh;
 
   .hide-password {
     display: block;

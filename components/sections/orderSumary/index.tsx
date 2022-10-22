@@ -27,59 +27,59 @@ export function OrderSumaryComponent({
   const { dispatch, paymentInformations, statePayment } = usePayment();
   const formRef = useRef<FormHandles>(null);
 
-  function handleSubmit() {}
+  function handleSubmit() { }
 
-  const validateShippingAndAddress = useCallback(() => {
-    if (addressSelected) {
-      (async () => {
-        const guid = localStorage.getItem("guid");
+  // const validateShippingAndAddress = useCallback(() => {
+  //   if (addressSelected) {
+  //     (async () => {
+  //       const guid = localStorage.getItem("guid");
 
-        if (guid) {
-          const shippingResponse: any = await GetListShipping(
-            addressSelected.zipCode,
-            JSON.parse(guid)
-          );
+  //       if (guid) {
+  //         const shippingResponse: any = await GetListShipping(
+  //           addressSelected.zipCode,
+  //           JSON.parse(guid)
+  //         );
 
-          const shippingResponseToOptions = shippingResponse?.map(
-            (shipping) => {
-              return {
-                label: shipping.name + ", +" + ToMoney(shipping.price),
-                value: shipping.code,
-              };
-            }
-          );
+  //         const shippingResponseToOptions = shippingResponse?.map(
+  //           (shipping) => {
+  //             return {
+  //               label: shipping.name + ", +" + ToMoney(shipping.price),
+  //               value: shipping.code,
+  //             };
+  //           }
+  //         );
 
-          dispatch({
-            type: "AddShippingAddressId",
-            payload: addressSelected.id,
-          });
+  //         dispatch({
+  //           type: "AddShippingAddressId",
+  //           payload: addressSelected.id,
+  //         });
 
-          dispatch({
-            type: "AddShippingId",
-            payload: {
-              id: shippingResponseToOptions[0].value,
-              value: shippingResponse[0].price,
-              label: shippingResponseToOptions[0].label,
-            },
-          });
-        }
-      })();
-    } else {
-      dispatch({
-        type: "RemoveShippingAddressId",
-        payload: {},
-      });
+  //         dispatch({
+  //           type: "AddShippingId",
+  //           payload: {
+  //             id: shippingResponseToOptions[0].value,
+  //             value: shippingResponse[0].price,
+  //             label: shippingResponseToOptions[0].label,
+  //           },
+  //         });
+  //       }
+  //     })();
+  //   } else {
+  //     dispatch({
+  //       type: "RemoveShippingAddressId",
+  //       payload: {},
+  //     });
 
-      dispatch({
-        type: "RemoveShippingId",
-        payload: {},
-      });
-    }
-  }, [addressSelected, state.items]);
+  //     dispatch({
+  //       type: "RemoveShippingId",
+  //       payload: {},
+  //     });
+  //   }
+  // }, [addressSelected, state.items]);
 
-  useEffect(() => {
-    validateShippingAndAddress();
-  }, [addressSelected, state.items]);
+  // useEffect(() => {
+  //   validateShippingAndAddress();
+  // }, [addressSelected, state.items]);
 
   return (
     <S.OrderSumaryComponent>
@@ -90,14 +90,14 @@ export function OrderSumaryComponent({
           <div className="subtotal">
             <h4 className="paragraph-1-regular">Subtotal</h4>
             <span className="paragraph-2-regular">
-              {paymentInformations.numberItemsInCart} items
+              {paymentInformations.numberItemsInCart} números
             </span>
           </div>
 
           <span className="paragraph-1-regular total">{paymentInformations.total}</span>
         </div>
 
-        {statePayment.payment.couponCode && (
+        {/* {statePayment.payment.couponCode && (
           <div className="section-order shipping-price">
             <h4 className="paragraph-2-regular">
               Cupom selecionado:{" "}
@@ -112,9 +112,9 @@ export function OrderSumaryComponent({
                 "%"}
             </p>
           </div>
-        )}
+        )} */}
 
-        {addressSelected && (
+        {/* {addressSelected && (
           <div className="section-order shipping-price">
             <h4 className="paragraph-2-regular">
               Frete para <span>{addressSelected.zipCode}</span>
@@ -124,12 +124,22 @@ export function OrderSumaryComponent({
               {statePayment.payment.shippingId?.label}
             </p>
           </div>
-        )}
+        )} */}
 
-        <div className="actions">
+        {/* <div className="actions">
           <div className="action section-order">
             <CouponComponent formRef={formRef} />
           </div>
+        </div> */}
+
+        <div className="section-order shipping-price">
+          <h4 className="paragraph-2-regular">
+            Taxa Adm Gateway Pagamento:
+          </h4>
+
+          <p className="paragraph-1-regular">
+            - R$0,99
+          </p>
         </div>
 
         <div className="bottom-order">
