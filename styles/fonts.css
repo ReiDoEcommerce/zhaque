@@ -1,0 +1,268 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: Montserrat !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+strong,
+time,
+address,
+i,
+a,
+b,
+label,
+li,
+td {
+  text-rendering: optimizeLegibility !important;
+  margin-bottom: 0;
+}
+
+[class*="-italic"] {
+  font-style: italic;
+}
+
+[class*="-black"] {
+  font-weight: 900;
+}
+
+[class*="-book"] {
+  font-weight: 800;
+}
+
+[class*="-bold"] {
+  font-weight: 700;
+}
+
+[class*="-semibold"] {
+  font-weight: 600;
+}
+
+[class*="-medium"] {
+  font-weight: 500;
+}
+
+[class*="-regular"] {
+  font-weight: 400;
+}
+
+[class*="-light"] {
+  font-weight: 300;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+/* titulos */
+[class*="title-1"] {
+  font-size: 32px;
+}
+[class*="title-2"] {
+  font-size: 28px;
+}
+[class*="title-3"] {
+  font-size: 20px;
+}
+[class*="title-4"] {
+  font-size: 16px;
+}
+[class*="title-price"] {
+  font-size: 40px;
+}
+
+/* paragrafos */
+[class*="paragraph-1"] {
+  font-size: 16px;
+}
+[class*="paragraph-2"] {
+  font-size: 14px;
+}
+
+/* links */
+[class*="link-1"] {
+  font-size: 18px;
+}
+[class*="link-2"] {
+  font-size: 16px;
+}
+[class*="link-3"] {
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 1600px) {
+  /* title */
+  [class*="title-1"] {
+    font-size: 30px;
+  }
+  [class*="title-2"] {
+    font-size: 26.5px;
+  }
+  [class*="title-3"] {
+    font-size: 19px;
+  }
+  /* paragrafos */
+  [class*="paragraph-1"] {
+    font-size: 15.5px;
+  }
+  /* links */
+  [class*="link-1"] {
+    font-size: 17.5px;
+  }
+  [class*="link-2"] {
+    font-size: 15.5px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  /* title */
+  [class*="title-1"] {
+    font-size: 28px;
+  }
+  [class*="title-2"] {
+    font-size: 25px;
+  }
+  [class*="title-3"] {
+    font-size: 18px;
+  }
+  [class*="title-price"] {
+    font-size: 35px;
+  }
+  /* paragrafos */
+  [class*="paragraph-1"] {
+    font-size: 15px;
+  }
+  /* links */
+  [class*="link-1"] {
+    font-size: 17px;
+  }
+  [class*="link-2"] {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* title */
+  [class*="title-1"] {
+    font-size: 26px;
+  }
+  [class*="title-2"] {
+    font-size: 23px;
+  }
+  [class*="title-3"] {
+    font-size: 16px;
+  }
+  [class*="title-price"] {
+    font-size: 33px;
+  }
+  /* paragrafos */
+  [class*="paragraph-1"] {
+    font-size: 14.5px;
+  }
+  /* links */
+  [class*="link-1"] {
+    font-size: 16.5px;
+  }
+  [class*="link-2"] {
+    font-size: 14.5px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* title */
+  [class*="title-1"] {
+    font-size: 24px;
+  }
+  [class*="title-2"] {
+    font-size: 21px;
+  }
+  [class*="title-price"] {
+    font-size: 31px;
+  }
+  /* paragrafos */
+  [class*="paragraph-1"] {
+    font-size: 14px;
+  }
+  [class*="paragraph-2"] {
+    font-size: 13.5px;
+  }
+
+  /* links */
+  [class*="link-1"] {
+    font-size: 16.5px;
+  }
+  [class*="link-2"] {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  [class*="title-price"] {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  /* titulo */
+  [class*="title-price"] {
+    font-size: 22px;
+  }
+
+  [class*="paragraph-2"] {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+   /* titulo */
+   [class*="title-1"] {
+    font-size: 20px;
+  }
+  [class*="title-3"] {
+    font-size: 15px;
+  }
+  [class*="title-price"] {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width:400px) {
+  [class*="title-price"] {
+    font-size: 16px;
+  }
+  [class*="link-3"] {
+    font-size: 12px;
+  }
+  [class*="paragraph-2"] {
+    font-size: 12px;
+  }
+}
