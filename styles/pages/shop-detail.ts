@@ -336,7 +336,7 @@ export const ShopDetail = styled.main`
   } */
 
   @media only screen and (max-width: 1600px) {
-    padding: 55px 0 0;
+    padding: 55px 0;
 
     .box-product {
       .image {
@@ -417,7 +417,7 @@ export const ShopDetail = styled.main`
   }
 
   @media only screen and (max-width: 1400px) {
-    padding: 50px 0 0;
+    padding: 50px 0;
 
     .box-product {
       .image {
@@ -504,7 +504,7 @@ export const ShopDetail = styled.main`
   }
 
   @media only screen and (max-width: 1200px) {
-    padding: 40px 0 0;
+    padding: 40px 0;
 
     .box-product {
       .image {
@@ -554,7 +554,7 @@ export const ShopDetail = styled.main`
   }
 
   @media only screen and (max-width: 1024px) {
-    padding: 40px 0 0;
+    padding: 35px 0;
 
     .swiper-produtos {
       margin-bottom: 35px;
@@ -650,7 +650,8 @@ export const ShopDetail = styled.main`
   }
 
   @media only screen and (max-width: 900px) {
-    padding: 25px 0 0;
+    padding: 25px 0;
+
     .top {
       justify-content: center;
       margin-bottom: 10px;
@@ -794,7 +795,7 @@ export const ShopDetail = styled.main`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 20px 0 0;
+    padding: 20px 0;
 
     .top {
       margin-bottom: 10px;

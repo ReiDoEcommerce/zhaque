@@ -15,15 +15,9 @@ export function FooterComponent() {
           <div className="links">
             <h3 className="paragraph-1-bold">Mapa do Site</h3>
 
-            <Link href={"/sobre"} passHref>
+            <Link href={"/sobre-nos"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
                 Sobre nós
-              </a>
-            </Link>
-
-            <Link href={"/rifas"} passHref>
-              <a href="replaced" className="paragraph-1-regular link">
-                Rifas
               </a>
             </Link>
 
@@ -36,7 +30,6 @@ export function FooterComponent() {
 
           <div className="links">
             <h3 className="paragraph-1-bold">Institucional</h3>
-
 
             <Link href={"/termos-de-uso"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
