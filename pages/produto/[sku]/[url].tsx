@@ -8,7 +8,10 @@ import { Rating } from "react-simple-star-rating";
 
 import {
   GetProduct,
+  GetProducts,
   ProductDetail,
+  ProductListItem,
+  ProductProps,
 } from "src/services/shop/get";
 
 import {
@@ -17,37 +20,40 @@ import {
   BreadCrumbComponent,
 } from "components/data/components";
 import { Layout } from "components/layout";
+import { ToMoney } from "src/utils/numberToCurrency";
 import BannerStripComponent from "components/sections/BannerStrip";
 import { Quantity } from "components/sections/product-detail/quantity";
 import { ProductShowCase } from "components/sections/shop-detail/carousel";
 
 import * as S from "styles/pages/shop-detail";
+import { DestaquesProdutosComponent } from "components/sections/home/DestaquesProdutos";
 
 interface DetailProductPageProps {
   data: ProductDetail;
+  products: ProductListItem[];
 }
 
 export default function DetailProductPage({
-  data: { imagens, product, reviews },
+  data: { imagens, product }, products
 }: DetailProductPageProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   const carouselMain = useRef() as any;
   const carouselList = useRef() as any;
 
-  const mediaReviews = () => {
-    if (reviews.length === 0) {
-      return 0;
-    }
+  // const mediaReviews = () => {
+  //   if (reviews.length === 0) {
+  //     return 0;
+  //   }
 
-    let soma = 0;
+  //   let soma = 0;
 
-    for (let i in reviews) {
-      soma += reviews[i].rate;
-    }
+  //   for (let i in reviews) {
+  //     soma += reviews[i].rate;
+  //   }
 
-    return soma / reviews.length;
-  };
+  //   return soma / reviews.length;
+  // };
 
   const breadCrumbList = [
     {
@@ -97,20 +103,21 @@ export default function DetailProductPage({
 
             <div className="text">
               <div className="top-detail">
-                <h4 className="title-3-regular">
-                  Esta rifa será sorteada no dia <br />
-                  <strong>08/10/2022 às 22h00</strong>
-                </h4>
-
-                <h2 className="title-2-bold hide-on-mobile">
+                <h2 className="title-1-bold hide-on-mobile">
                   {product.titulo}
                 </h2>
+
+                <h4 className="title-3-regular">
+                  <strong>{product.subTitulo}</strong>
+                  <br />
+                  Esta rifa será sorteada
+                </h4>
 
                 <span className="cod link-1-regular">
                   (CÓD: {product.sku}){" "}
                 </span>
 
-                <div className="review link-1-regular">
+                {/* <div className="review link-1-regular">
                   <Rating
                     ratingValue={20 * mediaReviews()}
                     size={31}
@@ -125,13 +132,12 @@ export default function DetailProductPage({
                   <div className="rating">
                     <span>{reviews?.length}</span>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="prices">
-                  <CurrencyText
-                    isPromotion={product.isPromotion}
-                    text={product.preco.toString()}
-                  />
+                  <div className="title-price-bold currency">
+                    <span>{ToMoney(product.preco)}</span>
+                  </div>
 
                   {product.precoPromo && product.isPromotion && (
                     <CurrencyText
@@ -142,13 +148,17 @@ export default function DetailProductPage({
                 </div>
               </div>
 
-              <Quantity product={product} />
+              {product.IsOffline ? <p className="title-2-bold">Venda finalizada.</p> : <Quantity product={product} />}
             </div>
           </div>
         </Container>
 
         <BannerStripComponent />
-      
+
+        <DestaquesProdutosComponent
+          title="Itens relacionados"
+          listProducts={products}
+        />
       </S.ShopDetail>
     </Layout>
   );
@@ -156,6 +166,7 @@ export default function DetailProductPage({
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const response = await GetProduct(ctx);
+  const responseProducts = await GetProducts(ctx, true);
 
   if (response === undefined) {
     return {
@@ -164,9 +175,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
+  const produtoExisteEmDestaque = responseProducts?.products.find((item) => item.id === response.product.id) ? responseProducts.products.filter((item) => item.id !== response.product.id) : responseProducts;
+
+  console.log(produtoExisteEmDestaque)
+
   return {
     props: {
       data: response,
+      products: produtoExisteEmDestaque
     },
   };
 };

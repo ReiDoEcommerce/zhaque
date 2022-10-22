@@ -84,7 +84,7 @@ export const CartItem = styled.div<CartItemStyle>`
   .price {
     span {
       color: var(--primary-color-dark);
-      font-size: 17px;
+      font-size: 15px;
     }
   }
 

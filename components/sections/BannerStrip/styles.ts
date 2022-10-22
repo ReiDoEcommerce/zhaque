@@ -4,12 +4,12 @@ export const BannerStrip = styled.section`
   padding: 60px 0 35px;
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .box-banner {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 12px;

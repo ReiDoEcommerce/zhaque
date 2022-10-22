@@ -5,7 +5,7 @@ export default function BannerStripComponent() {
   return (
     <S.BannerStrip>
       <Container>
-          <div className="box-banner">
+          {/* <div className="box-banner">
             <div className="image">
               <img
                 src="/images/icon-banner-frete.png"
@@ -19,7 +19,7 @@ export default function BannerStripComponent() {
                 Frete fixo para todo o Brasil
               </span>
             </div>
-          </div>
+          </div> */}
 
           <div className="box-banner">
             <div className="image">
@@ -32,7 +32,7 @@ export default function BannerStripComponent() {
             <div className="text">
               <h3 className="title-3-bold">Atendimento de Segunda a Sexta</h3>
               <span className="paragraph-1-medium">
-                Via E-mail, Twitter e WhatsApp
+                Via E-mail e WhatsApp
               </span>
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function BannerStripComponent() {
 
             <div className="text">
               <h3 className="title-3-bold">Pagamento Seguro</h3>
-              <span className="paragraph-1-medium">Boleto, Cartão e Pix</span>
+              <span className="paragraph-1-medium">Cartão e Pix</span>
             </div>
           </div>
       </Container>

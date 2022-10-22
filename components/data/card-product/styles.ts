@@ -141,6 +141,11 @@ export const CardProduct = styled.div`
     }
   }
 
+  .currency {
+    color: #fff;
+    margin: 10px 0;
+  }
+
   @media only screen and (max-width: 1600px) {
     .bt {
       height: 52px;

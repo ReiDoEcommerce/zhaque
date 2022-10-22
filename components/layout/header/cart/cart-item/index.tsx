@@ -10,6 +10,7 @@ import { useCart } from "src/contexts/CartContext";
 import { ICartItem } from "src/contexts/CartContext/intefaces/cart";
 
 import * as S from "./styles";
+import { ToMoney } from "src/utils/numberToCurrency";
 
 interface CartItemProps {
   item: ICartItem;
@@ -48,7 +49,9 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
           </h4>
           <div>
             <div className="price">
-              <CurrencyText text={String(parseFloat(item.preco).toFixed(2))} />
+                <span className="title-price-bold currency">
+                  {item.quantity} x {ToMoney(Number(item.preco))} = {ToMoney(Number(item.preco) * item.quantity)}
+                </span>
             </div>
 
             <div className="cart-infos show-mobile">

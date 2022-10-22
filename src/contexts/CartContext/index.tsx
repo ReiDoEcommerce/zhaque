@@ -13,7 +13,6 @@ import { ICart, ICartAction, ICartItem } from "./intefaces/cart";
 import { useRouter } from "next/router";
 
 import { api } from "src/services/api";
-import { Product } from "src/services/shop/get";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -225,6 +224,8 @@ function CartProvider({ children }: ProvidersProps) {
 
   async function PlusCart(item: ICartItem, quantity: number | undefined) {
     setError("");
+
+    console.log(item)
 
     try {
       const response: any = await api.post("cart/plus", { guid: item.guid, quantity });

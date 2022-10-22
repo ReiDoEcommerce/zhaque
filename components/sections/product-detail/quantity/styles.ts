@@ -20,6 +20,15 @@ export const Quantity = styled.div`
 
         h5 {
           margin-bottom: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          button {
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+          }
         }
 
         .numbers-list {

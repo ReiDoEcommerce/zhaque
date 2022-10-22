@@ -44,7 +44,8 @@ export interface Product {
   categoriaUrl: string;
   video?: string;
   idFile: number;
-
+  IsOffline?: boolean;
+  
   //new
   brinde?: string;
   isPreVenda?: boolean;
@@ -93,13 +94,13 @@ export interface CategoriesList {
 }
 
 export async function GetProducts(
-  router: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+  router: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>, all?: boolean
 ) {
   if (router) {
     const { data } = await api.get<ProductProps>(
-      `/categories/products${router.resolvedUrl.substr(
+      `/categories/products${!all ? router.resolvedUrl.substr(
         router.resolvedUrl.split("/")[1].length + 1
-      )}`
+      ) : ""}`
     );
 
     if (data) {

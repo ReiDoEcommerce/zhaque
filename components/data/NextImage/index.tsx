@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { baseImage, baseImageGallery } from "src/services/api";
+
 import * as S from "./styles";
 
 interface NextImageProps {
@@ -8,12 +9,19 @@ interface NextImageProps {
   src: string | undefined;
   layout: "fill" | "fixed" | "intrinsic" | "responsive" | "raw" | undefined;
 }
+
 export function NextImage({
   src,
   layout,
   isBaseUrl,
   isBaseImageGallery,
 }: NextImageProps) {
+  console.log(src ? isBaseUrl
+    ? baseImage + src
+    : isBaseImageGallery
+    ? baseImageGallery + src
+    : src
+  : "/images/default-image.webp")
   return (
     <S.Image>
       <Image

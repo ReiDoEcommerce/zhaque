@@ -117,8 +117,6 @@ export default function HomePage({ banners, products }: HomeProps) {
     },
   ]
 
-
-
   const listacomtres = [
     {
       id: 1,
@@ -308,19 +306,18 @@ export default function HomePage({ banners, products }: HomeProps) {
 
       <BannerStripComponent />
 
-      <MiniBannersComponent listBanners={listacomdois} />
+      {/* <MiniBannersComponent listBanners={listacomdois} /> */}
 
-      <DestaquesProdutosComponent
+      {/* <DestaquesProdutosComponent
         title="Destaques"
         listProducts={listaprodutos1}
       />
 
-      <MiniBannersComponent listBanners={listacomtres} />
-
+      <MiniBannersComponent listBanners={listacomtres} /> */}
 
       <DestaquesProdutosComponent
-        title="Destaques"
-        listProducts={listaprodutos2}
+        title="Destaque"
+        listProducts={products.products}
       />
     </Layout>
   );
