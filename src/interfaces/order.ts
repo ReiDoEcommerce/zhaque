@@ -3,12 +3,19 @@ interface DetailOrder {
   quantidade: number;
   titulo: string;
   valorTotal: number;
+  dataSorteio: string;
+  guid: number;
+  isPriced: boolean;
+  numSorteio: number;
+  numerosSorteio: string;
 }
 
 interface DetailLog {
   dateCreated: string;
   titulo: string;
 }
+
+
 
 export interface Order {
   guid: string;

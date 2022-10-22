@@ -135,6 +135,8 @@ export const DetailOrder = styled.div<DetailOrderStyleProps>`
       }
 
       .box-right {
+        margin-left: 50px;
+
         h4 {
           margin-bottom: 20px;
         }
@@ -205,7 +207,7 @@ export const DetailOrder = styled.div<DetailOrderStyleProps>`
 
     span {
       padding: 0 8px;
-      min-width: 60px;
+      min-width: 70px;
       height: 32px;
       border-radius: 10px;
       border: 1px solid #707070;
