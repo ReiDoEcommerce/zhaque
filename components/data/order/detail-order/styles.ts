@@ -137,8 +137,12 @@ export const DetailOrder = styled.div<DetailOrderStyleProps>`
       .box-right {
         margin-left: 50px;
 
-        h4 {
+        .data-sorteio {
           margin-bottom: 20px;
+        }
+
+        h4 {
+          margin-bottom: 0;
         }
       }
     }

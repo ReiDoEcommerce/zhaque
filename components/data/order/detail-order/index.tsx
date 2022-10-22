@@ -23,6 +23,8 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
     return order?.orderStatus?.includes(word);
   }
 
+  console.log(order)
+
   return (
     <S.DetailOrder isComplete={isComplete}>
       <div className="top-order top-my-orders divisor">
@@ -77,14 +79,6 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
             </span>
           </div>
         )}
-
-        <div className="box-order data-sorteio">
-          <h3 className="paragraph-1-bold">data do sorteio:</h3>
-
-          <span className="title-1-bold">
-            22/08/2022
-          </span>
-        </div>
       </div>
 
       <div className="divisor">
@@ -154,7 +148,7 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
               <h3 className="paragraph-1-bold">Produto</h3>
 
               {order?.orderDetailItems?.map(
-                ({ imagem, quantidade, titulo, valorTotal, numerosSorteio }, index) => {
+                ({ imagem, quantidade, titulo, valorTotal, numerosSorteio, dataSorteio }, index) => {
                   return (
                     <div
                       className="product-informations divisor"
@@ -186,6 +180,14 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
                       </div>
 
                       <div className="box-right">
+                        <div className="box-order data-sorteio">
+                          <h3 className="paragraph-1-bold">data do sorteio:</h3>
+
+                          <span className="title-1-bold">
+                            {dataSorteio}
+                          </span>
+                        </div>
+
                         <h4 className="paragraph-1-bold">Total</h4>
 
                         <span className="pink">{ToMoney(valorTotal * numerosSorteio.split(";").length)}</span>
