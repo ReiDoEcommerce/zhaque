@@ -17,10 +17,7 @@ interface CartItemProps {
 }
 
 export function CartItemComponent({ item, increase }: CartItemProps) {
-  const { SubtractQuantity, AddQuantity, RemoveCart, cartLoading } =
-    useCart();
-
-  
+  const { SubtractQuantity, AddQuantity, RemoveCart, cartLoading } = useCart();
 
   return (
     <S.CartItem increase={increase} className="cart-item">
@@ -59,7 +56,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
                 <button
                   type="button"
                   className="paragraph-1-bold"
-                  onClick={() => SubtractQuantity(item)}
+                  onClick={() => SubtractQuantity(item, 1)}
                   disabled={item.quantity === 1}
                   aria-label="minus button item cart"
                 >
@@ -72,7 +69,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
 
                 <button
                   type="button"
-                  onClick={() => AddQuantity(item)}
+                  onClick={() => AddQuantity(item, 1)}
                   className="paragraph-1-bold"
                   aria-label="plus button item cart"
                 >
@@ -123,7 +120,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
           <button
             type="button"
             className="paragraph-1-bold"
-            onClick={() => SubtractQuantity(item)}
+            onClick={() => SubtractQuantity(item, 1)}
             disabled={item.quantity === 1}
             aria-label="minus button item cart"
           >
@@ -136,7 +133,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
 
           <button
             type="button"
-            onClick={() => AddQuantity(item)}
+            onClick={() => AddQuantity(item, 1)}
             className="paragraph-1-bold"
             aria-label="plus button item cart"
           >

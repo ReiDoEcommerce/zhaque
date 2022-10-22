@@ -1,9 +1,12 @@
-import { CardProductComponent } from "components/data/card-product";
-import { Container } from "components/data/container";
-import { DetailsComponent } from "components/data/details";
 import React from "react";
+
 import { ProductListItem } from "src/services/shop/get";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Container } from "components/data/container";
+import { CardProductComponent } from "components/data/card-product";
+
 import * as S from "./styles";
 
 interface DestaquesProdutosComponentProps {
@@ -63,14 +66,13 @@ export function DestaquesProdutosComponent({
 
         {!isCarousel && (
           <div className="grid-produtos">
-            {listProducts?.map((card) => {
-              return (
+            {listProducts?.map((card) => (
                 <CardProductComponent
                   key={card.id + card.titulo + card.sku}
                   card={card}
                 />
-              );
-            })}
+              )
+            )}
           </div>
         )}
       </Container>
