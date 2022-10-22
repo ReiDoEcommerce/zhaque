@@ -10,7 +10,6 @@ import {
   GetProduct,
   ProductDetail,
 } from "src/services/shop/get";
-import { useCart } from "src/contexts/CartContext";
 
 import {
   Container,
@@ -32,8 +31,6 @@ export default function DetailProductPage({
   data: { imagens, product, reviews },
 }: DetailProductPageProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-
-  const { state, AddCart, CreateCart, setCartLoading } = useCart();
 
   const carouselMain = useRef() as any;
   const carouselList = useRef() as any;
@@ -66,49 +63,6 @@ export default function DetailProductPage({
       url: "",
     },
   ];
-
-  async function AddProductInCart() {
-    const item = {
-      id: product.id,
-      titulo: product.titulo,
-      preco: product.precoPromo?.toString() || product.preco.toString(),
-      precoPromo: product.precoPromo?.toString(),
-      isPromotion: product.isPromotion,
-      imagem: product.imagem,
-      quantity: 1,
-      isVariation: false,
-      url: product.url,
-      sku: product.sku,
-    };
-
-    setCartLoading(true);
-
-    const guidToLocalStorage = localStorage.getItem("guid");
-
-    if (state.items.length === 0 && !guidToLocalStorage) {
-
-      await CreateCart(item);
-
-      setCartLoading(false);
-      return;
-    }
-
-    if (guidToLocalStorage) {
-      const parsedGuid = JSON.parse(guidToLocalStorage);
-
-      const itemExist = state.items.find((item) => item.id === product.id);
-
-      if (itemExist) {
-        setCartLoading(false);
-        return;
-      }
-
-      await AddCart(parsedGuid, item);
-
-      setCartLoading(false);
-      return;
-    }
-  }
 
   return (
     <Layout>
@@ -188,7 +142,7 @@ export default function DetailProductPage({
                 </div>
               </div>
 
-              <Quantity product={product} AddProductInCart={AddProductInCart}/>
+              <Quantity product={product} />
             </div>
           </div>
         </Container>

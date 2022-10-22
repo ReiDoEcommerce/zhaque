@@ -1,8 +1,8 @@
 import axios from "axios";
 import { parseCookies } from "nookies";
 
-const apiURL = "https://apimikrokosmos.codie.digital/";
-const baseImage = "https://mikrokosmos.codie.digital/uploads/";
+const apiURL = "https://api.zhaque.com.br/";
+const baseImage = "https://painel.zhaque.com.br/uploads/";
 const baseImageGallery = "https://mikrokosmos.codie.digital/imagens/Products/";
 
 export function getAPIClient(ctx?: any) {

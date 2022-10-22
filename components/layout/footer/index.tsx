@@ -94,7 +94,7 @@ export function FooterComponent() {
           <div className="links atendimento">
             <h3 className="paragraph-1-bold">Central de Atendimento</h3>
 
-            <Link href={"tel:43991051874"} passHref>
+            <Link href={"tel:43999006777"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
                 <i>
                   <svg
@@ -111,11 +111,11 @@ export function FooterComponent() {
                   </svg>
                 </i>
                 Dúvidas, ligue <br />
-                (43) 99999-9999
+                (43) 99900-6777
               </a>
             </Link>
 
-            <Link href={"mailto:contato@email.com"} passHref>
+            <Link href={"mailto:zhaquesuporte@hotmail.com"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
                 <i>
                   <svg
@@ -131,7 +131,7 @@ export function FooterComponent() {
                     </g>
                   </svg>
                 </i>
-                Envie um e-mail <br /> contato@email.com
+                Envie um e-mail <br /> zhaquesuporte@hotmail.com
               </a>
             </Link>
 

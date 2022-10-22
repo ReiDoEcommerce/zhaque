@@ -56,7 +56,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
                 <button
                   type="button"
                   className="paragraph-1-bold"
-                  onClick={() => SubtractQuantity(item, 1)}
+                  onClick={() => SubtractQuantity(item)}
                   disabled={item.quantity === 1}
                   aria-label="minus button item cart"
                 >
@@ -120,7 +120,7 @@ export function CartItemComponent({ item, increase }: CartItemProps) {
           <button
             type="button"
             className="paragraph-1-bold"
-            onClick={() => SubtractQuantity(item, 1)}
+            onClick={() => SubtractQuantity(item)}
             disabled={item.quantity === 1}
             aria-label="minus button item cart"
           >

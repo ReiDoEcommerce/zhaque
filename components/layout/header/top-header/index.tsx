@@ -45,7 +45,7 @@ export function TopHeaderComponent() {
         </div>
 
         <div className="box">
-          <Link href={"tel:43999999"} passHref>
+          <Link href={"tel:43999006777"} passHref>
             <a href="replaced" className="paragraph-1-medium-poppins">
               <i>
                 <svg
@@ -61,7 +61,7 @@ export function TopHeaderComponent() {
                   </g>
                 </svg>
               </i>
-              (43) 9 9999-9999
+              (43) 99900-6777
             </a>
           </Link>
         </div>

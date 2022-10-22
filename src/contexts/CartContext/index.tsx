@@ -13,6 +13,7 @@ import { ICart, ICartAction, ICartItem } from "./intefaces/cart";
 import { useRouter } from "next/router";
 
 import { api } from "src/services/api";
+import { Product } from "src/services/shop/get";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -27,17 +28,18 @@ const CartContext = createContext<
       state: ICart;
       dispatch: Dispatch<ICartAction>;
       CheckCart: () => Promise<void>;
-      CreateCart(item: ICartItem | undefined): Promise<void>;
-      AddCart(guid: string, item: ICartItem): Promise<void>;
+      CreateCart(item: ICartItem | undefined, quantity: number | undefined): Promise<void>;
+      AddCart(guid: string, item: ICartItem, quantity: number | undefined): Promise<void>;
       RemoveCart: (guid: string | undefined) => Promise<void>;
       PlusCart: (item: ICartItem, quantity: number | undefined) => Promise<void>;
-      MinusCart: (item: ICartItem, quantity: number | undefined) => Promise<void>;
+      MinusCart: (item: ICartItem) => Promise<void>;
       AddQuantity(item: ICartItem, quantity: number | undefined): Promise<void>;
-      SubtractQuantity: (item: ICartItem, quantity: number | undefined) => void;
+      SubtractQuantity: (item: ICartItem) => void;
       ResetCart: () => void;
       setCartLoading: Dispatch<SetStateAction<boolean>>;
+      AddProductInCart: (product: ICartItem, quantity: number | undefined) => Promise<void>
       cartLoading: boolean;
-      error;
+      error: string;
     }
   | undefined
 >(undefined);
@@ -134,7 +136,7 @@ function CartProvider({ children }: ProvidersProps) {
 
       setCartLoading(false);
     } else {
-      await CreateCart(undefined);
+      await CreateCart(undefined, 0);
 
       dispatch({
         payload: [],
@@ -153,7 +155,7 @@ function CartProvider({ children }: ProvidersProps) {
     return data.guid;
   }
 
-  async function CreateCart(item: ICartItem | undefined) {
+  async function CreateCart(item: ICartItem | undefined, quantity: number | undefined) {
     setError("");
 
     try {
@@ -170,20 +172,20 @@ function CartProvider({ children }: ProvidersProps) {
       if (guidAlredyExist) {
         const guidParsed = JSON.parse(guidAlredyExist);
 
-        return await AddCart(guidParsed, item);
+        return await AddCart(guidParsed, item, quantity);
       }
       const createdGuid = await CreateGuid();
 
       localStorage.setItem("guid", JSON.stringify(createdGuid));
 
-      return await AddCart(createdGuid, item);
+      return await AddCart(createdGuid, item, quantity);
     } catch (e) {
       CheckCart();
       throw e;
     }
   }
 
-  async function AddCart(guid: string, item: ICartItem) {
+  async function AddCart(guid: string, item: ICartItem, quantity: number | undefined) {
     setError("");
 
     try {
@@ -191,6 +193,7 @@ function CartProvider({ children }: ProvidersProps) {
         guid,
         id: item.id,
         isVariation: item.isVariation,
+        quantity,
       });
 
       if (response?.response?.data?.error) {
@@ -238,11 +241,11 @@ function CartProvider({ children }: ProvidersProps) {
     }
   }
 
-  async function MinusCart(item: ICartItem, quantity: number | undefined) {
+  async function MinusCart(item: ICartItem) {
     setError("");
 
     try {
-      const response: any = await api.post("/cart/minus", { guid: item.guid, quantity });
+      const response: any = await api.post("/cart/minus", { guid: item.guid });
 
       if (response?.response?.data?.error) {
         throw response;
@@ -255,7 +258,7 @@ function CartProvider({ children }: ProvidersProps) {
     }
   }
 
-  function SubtractQuantity(item: ICartItem, quantity: number | undefined) {
+  function SubtractQuantity(item: ICartItem) {
     if (cartLoading) {
       return;
     }
@@ -269,7 +272,7 @@ function CartProvider({ children }: ProvidersProps) {
       return;
     }
 
-    MinusCart(item, quantity);
+    MinusCart(item);
 
     setCartLoading(false);
   }
@@ -281,7 +284,17 @@ function CartProvider({ children }: ProvidersProps) {
 
     setCartLoading(true);
 
-    await PlusCart(item, quantity);
+    const guidToLocalStorage = localStorage.getItem("guid");
+
+    if(guidToLocalStorage) {
+      await PlusCart(item, quantity);
+    
+      setCartLoading(false);
+
+      return;
+    }
+
+    await AddProductInCart(item, quantity)
 
     setCartLoading(false);
   }
@@ -297,6 +310,50 @@ function CartProvider({ children }: ProvidersProps) {
     setError(
       "Desculpe houve um erro ao processar os dados do seu carrinho, por favor tente adicionar os itens novamente."
     );
+  }
+
+  async function AddProductInCart(product: ICartItem, quantity: number | undefined) {
+    const item = {
+      id: product.id,
+      titulo: product.titulo,
+      preco: product.precoPromo?.toString() || product.preco.toString(),
+      precoPromo: product.precoPromo?.toString(),
+      isPromotion: product.isPromotion,
+      imagem: product.imagem,
+      quantity: 1,
+      isVariation: false,
+      url: product.url,
+      sku: product.sku,
+    };
+
+    setCartLoading(true);
+
+    const guidToLocalStorage = localStorage.getItem("guid");
+
+    if (state.items.length === 0 && !guidToLocalStorage) {
+
+      await CreateCart(item, quantity);
+
+      setCartLoading(false);
+      return;
+    }
+
+    if (guidToLocalStorage) {
+      const parsedGuid = JSON.parse(guidToLocalStorage);
+
+      const itemExist = state.items.find((state) => item.id === state.id);
+
+      if (itemExist) {
+        setCartLoading(false);
+        return;
+      }
+
+      await AddCart(parsedGuid, item, quantity);
+
+      setCartLoading(false);
+
+      return
+    }
   }
 
   useEffect(() => {
@@ -324,6 +381,7 @@ function CartProvider({ children }: ProvidersProps) {
         PlusCart,
         MinusCart,
         RemoveCart,
+        AddProductInCart
       }}
     >
       {children}
