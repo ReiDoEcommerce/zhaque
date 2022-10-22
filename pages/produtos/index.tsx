@@ -1,8 +1,8 @@
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { GetServerSideProps, NextPage } from "next";
 
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 
 import {
   GetProducts,
@@ -11,17 +11,16 @@ import {
   CategoriesList,
   ProductProps,
 } from "src/services/shop/get";
-
 import createRouterBuild from "src/utils/router-build";
 import Paginate, { IPagination } from "src/utils/pagination";
 
-import { Layout } from "components/layout";
 import {
-  Container,
-  FilterBy,
   SortBy,
+  FilterBy,
+  Container,
   PaginationComponent,
 } from "components/data/components";
+import { Layout } from "components/layout";
 import { CardProductComponent } from "components/data/card-product";
 
 import * as S from "styles/pages/shop";
