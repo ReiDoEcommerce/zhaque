@@ -162,19 +162,20 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
                           <span className="paragraph-2-medium">
                             Quantidade {quantidade}
                           </span>
+                          {
+                            numerosSorteio.length > 0 && <>
+                              <h3 className="paragraph-1-bold">números da sorte:</h3>
 
-                          <h3 className="paragraph-1-bold">números da sorte:</h3>
-
-                          <div className="more-details">
-                            <div className="list-numbers">
-                              {
-                                numerosSorteio.split(";").map(item => <span className="paragraph-1-bold">{item}</span>)
-                              }
-                            </div>
-                          </div>
+                              <div className="more-details">
+                                <div className="list-numbers">
+                                  {
+                                    numerosSorteio.split(";").map(item => <span className="paragraph-1-bold">{item}</span>)
+                                  }
+                                </div>
+                              </div>
+                            </>
+                          }
                         </div>
-
-
                       </div>
 
                       <div className="box-right">
