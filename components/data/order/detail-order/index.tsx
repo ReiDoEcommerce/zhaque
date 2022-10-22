@@ -206,10 +206,10 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
               )}
 
               <div className="product-row">
-                <span className="product-title paragraph-1-bold">Frete</span>
+                <span className="product-title paragraph-1-bold">Taxa Adm Gateway Pagamento:</span>
 
                 <span className="pink">
-                  {order?.shipValue ? ToMoney(order.shipValue) : "0,00"}
+                  {ToMoney(0.99)}
                 </span>
               </div>
             </div>
