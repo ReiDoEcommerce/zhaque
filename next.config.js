@@ -4,7 +4,6 @@ module.exports = {
     domains: [
       "localhost",
       "mikrokosmos.codie.digital",
-      "https://master-of-miniatures.vercel.app/",
     ],
     experimental: {
       forceSwcTransforms: true,

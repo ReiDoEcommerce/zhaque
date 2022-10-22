@@ -4,7 +4,6 @@ import { parseCookies } from "nookies";
 const apiURL = "https://apimikrokosmos.codie.digital/";
 const baseImage = "https://mikrokosmos.codie.digital/uploads/";
 const baseImageGallery = "https://mikrokosmos.codie.digital/imagens/Products/";
-const baseVideo = "https://mikrokosmos.codie.digital/uploads/videos/"
 
 export function getAPIClient(ctx?: any) {
   const { "auth.token": token } = parseCookies(ctx);
@@ -48,4 +47,4 @@ export function getAPIClient(ctx?: any) {
 
 const api = getAPIClient();
 
-export { api, baseImage, baseImageGallery, baseVideo };
+export { api, baseImage, baseImageGallery };

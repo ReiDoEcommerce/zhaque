@@ -68,7 +68,7 @@ export default function ShopPage({ products, categories }: ShopPageProps) {
     <S.Shop filterMobile={filterMobile}>
       <Head>
         <title>{categorieSelected ? categorieSelected.pageTitle : "produtos"}</title>
-        <meta name="description" content={categorieSelected ? categorieSelected.metaDescription : "Livros mikrokosmos"} />
+        <meta name="description" content={categorieSelected ? categorieSelected.metaDescription : "Produtos"} />
       </Head>
 
       <Layout>

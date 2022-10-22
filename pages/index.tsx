@@ -1,14 +1,9 @@
-import Head from "next/head";
 import { GetServerSideProps } from "next";
 
 import { api } from "src/services/api";
-import { ProductListItem } from "src/services/shop/get";
 
 import { Layout } from "components/layout";
-import {
-  BannerComponent,
-  PartnersComponent,
-} from "components/sections/home/components";
+import { BannerComponent } from "components/sections/home/components";
 import BannerStripComponent from "components/sections/BannerStrip";
 import { MiniBannersComponent } from "components/sections/home/MiniBanners";
 import { DestaquesProdutosComponent } from "components/sections/home/DestaquesProdutos";
@@ -309,11 +304,6 @@ export default function HomePage({ banners, products }: HomeProps) {
 
   return (
     <Layout>
-      <Head>
-        <title>Mikrokosmos</title>
-        <meta name="description" content="" />
-      </Head>
-
       <BannerComponent listBanners={banners} />
 
       <BannerStripComponent />
