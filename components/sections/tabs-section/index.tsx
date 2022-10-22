@@ -9,7 +9,6 @@ import * as S from "./styles";
 
 interface TabSectionProps {
   product: Product;
-  reviews: Review[];
 }
 
 interface Tab {
@@ -18,9 +17,8 @@ interface Tab {
   component: JSX.Element;
 }
 
-export default function TabsSectionComponent({
+export default function TabsSection({
   product,
-  reviews,
 }: TabSectionProps) {
   const [tab, setTab] = useState<Tab | null>(null);
   const [size, setSize] = useState<{ height: number; width: number } | null>(
@@ -32,17 +30,7 @@ export default function TabsSectionComponent({
       id: 1,
       title: "Descrição",
       component: <DescricaoComponent products={product}/>,
-    },
-    {
-      id: 2,
-      title: "Definições técnicas",
-      component: <DefinicoesComponent />,
-    },
-    {
-      id: 3,
-      title: "Avaliações",
-      component: <ReviewsComponent reviews={reviews} />,
-    },
+    }
   ];
 
   const initialTab = tabs[0];

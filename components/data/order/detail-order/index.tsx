@@ -23,8 +23,6 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
     return order?.orderStatus?.includes(word);
   }
 
-  console.log(order)
-
   return (
     <S.DetailOrder isComplete={isComplete}>
       <div className="top-order top-my-orders divisor">

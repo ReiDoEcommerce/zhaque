@@ -27,6 +27,7 @@ import { ProductShowCase } from "components/sections/shop-detail/carousel";
 
 import * as S from "styles/pages/shop-detail";
 import { DestaquesProdutosComponent } from "components/sections/home/DestaquesProdutos";
+import TabsSection from "components/sections/tabs-section";
 
 interface DetailProductPageProps {
   data: ProductDetail;
@@ -152,14 +153,16 @@ export default function DetailProductPage({
             </div>
           </div>
         </Container>
-
-        <BannerStripComponent />
-
-        <DestaquesProdutosComponent
-          title="Itens relacionados"
-          listProducts={products}
-        />
       </S.ShopDetail>
+
+      <Container>
+        <TabsSection product={product} />
+      </Container>
+
+      <DestaquesProdutosComponent
+        title="Itens relacionados"
+        listProducts={products}
+      />
     </Layout>
   );
 }

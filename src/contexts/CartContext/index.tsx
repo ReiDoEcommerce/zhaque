@@ -225,8 +225,6 @@ function CartProvider({ children }: ProvidersProps) {
   async function PlusCart(item: ICartItem, quantity: number | undefined) {
     setError("");
 
-    console.log(item)
-
     try {
       const response: any = await api.post("cart/plus", { guid: item.guid, quantity });
 

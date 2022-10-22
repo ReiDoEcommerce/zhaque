@@ -16,12 +16,6 @@ export function NextImage({
   isBaseUrl,
   isBaseImageGallery,
 }: NextImageProps) {
-  console.log(src ? isBaseUrl
-    ? baseImage + src
-    : isBaseImageGallery
-    ? baseImageGallery + src
-    : src
-  : "/images/default-image.webp")
   return (
     <S.Image>
       <Image

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TabContent = styled.section`
   background-color: #fff;
-  padding: 60px;
+  padding: 25px;
 
   .content {
     max-width: 95%;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TabsSection = styled.section`
-  padding-bottom: 10vw;
+  padding-bottom: clamp(40px, 5vw, 80px);
 
   .tabs-actions {
     display: flex;

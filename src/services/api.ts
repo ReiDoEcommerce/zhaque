@@ -3,7 +3,7 @@ import { parseCookies } from "nookies";
 
 const apiURL = "https://api.zhaque.com.br/";
 const baseImage = "https://painel.zhaque.com.br/uploads/";
-const baseImageGallery = "https://mikrokosmos.codie.digital/imagens/Products/";
+const baseImageGallery = "https://painel.zhaque.com.br/imagens/Products/";
 
 export function getAPIClient(ctx?: any) {
   const { "auth.token": token } = parseCookies(ctx);

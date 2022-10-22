@@ -103,7 +103,6 @@ const App = ({ Component, pageProps }: AppProps) => {
                   <meta name="referrer" content="origin" />
                   <meta name="mobile-web-app-capable" content="yes" />
                   <meta name="apple-mobile-web-app-capable" content="yes" />
-                  <meta name="author" content="Codie" />
                   <meta name="rating" content="general" />
                   <meta
                     name="keyboard-shortcuts-preference"

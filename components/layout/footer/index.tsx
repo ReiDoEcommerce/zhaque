@@ -295,16 +295,6 @@ export function FooterComponent() {
             />
           </div>
         </div>
-
-        <div className="barra-codie">
-          <h4 className="paragraph-1-regular">Desenvolvido por</h4>
-
-          <Link href={"https://codie.com.br/"} passHref>
-            <a target="blank" href="replaced" className="image">
-              <img src="/images/icon-logo-codie.png" alt="logo codie" />
-            </a>
-          </Link>
-        </div>
       </Container>
     </S.Footer>
   );

@@ -125,25 +125,6 @@ export const Footer = styled.footer`
     margin-top: 50px;
   }
 
-  .barra-codie {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    gap: 11px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-
-    .image {
-      max-width: 67px;
-
-      img {
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-  }
-
   @media only screen and (max-width: 1600px) {
     padding: 55px 0 20px;
 
@@ -194,13 +175,6 @@ export const Footer = styled.footer`
         }
       }
     }
-
-    .barra-codie {
-      padding-top: 15px;
-      .image {
-        max-width: 62px;
-      }
-    }
   }
 
   @media only screen and (max-width: 1200px) {
@@ -226,12 +200,6 @@ export const Footer = styled.footer`
 
       .link + * {
         margin-top: 6px;
-      }
-    }
-
-    .barra-codie {
-      .image {
-        max-width: 59px;
       }
     }
   }
@@ -277,16 +245,6 @@ export const Footer = styled.footer`
     .payment-footer + * {
       margin-top: 30px;
     }
-
-    .barra-codie {
-      flex-direction: column;
-      gap: 6px;
-      padding-top: 13px;
-
-      .image {
-        max-width: 50px;
-      }
-    }
   }
 
   @media only screen and (max-width: 500px) {
@@ -317,13 +275,6 @@ export const Footer = styled.footer`
 
     .payment-footer + * {
       margin-top: 20px;
-    }
-
-    .barra-codie {
-      gap: 5px;
-      h4 {
-        font-size: 13px;
-      }
     }
   }
 `;
