@@ -43,20 +43,8 @@ export default function AboutPage({ information }: InformationPageProps) {
             <div className="image-sobre">
               <img src="/images/page-sobre.png" />
             </div>
-
-            {/* {information.item.image && (
-              <div className="image">
-                <NextImage
-                  layout="fill"
-                  src={information.item.image}
-                  isBaseUrl
-                />
-              </div>
-            )} */}
           </div>
         </Container>
-
-        <PartnersComponent />
       </S.AboutPage>
     </Layout>
   );
