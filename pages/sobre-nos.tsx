@@ -22,7 +22,7 @@ export default function AboutPage({ information }: InformationPageProps) {
         <title>{information.head.pageTitle}</title>
         <meta name="description" content={information.head.metaDescription} />
       </Head>
-      
+
       <S.AboutPage>
         <Container>
           <div className="text-image">
@@ -31,12 +31,13 @@ export default function AboutPage({ information }: InformationPageProps) {
                 {information.item.titulo}
               </h2>
 
-              <div
+              <p
                 className="paragraph-1-regular"
-                dangerouslySetInnerHTML={{
-                  __html: information.item.descricao,
-                }}
-              ></div>
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+              </p>
             </div>
 
             <div className="image-sobre">

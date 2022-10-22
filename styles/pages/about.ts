@@ -13,7 +13,7 @@ export const AboutPage = styled.section`
     max-width: 600px;
 
     h2 {
-      color: var(--secundary-color);
+      color: var(--primary-color);
     }
 
     h2 + * {
