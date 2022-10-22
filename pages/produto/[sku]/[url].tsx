@@ -111,7 +111,7 @@ export default function DetailProductPage({
                 <h4 className="title-3-regular">
                   <strong>{product.subTitulo}</strong>
                   <br />
-                  Esta rifa será sorteada
+                  {product.obs}
                 </h4>
 
                 <span className="cod link-1-regular">

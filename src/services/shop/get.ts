@@ -29,6 +29,7 @@ export interface ProductListItem {
 export interface Product {
   id: number;
   titulo: string;
+  obs: string;
   descricao?: string;
   subTitulo?: string;
   preco: number;
