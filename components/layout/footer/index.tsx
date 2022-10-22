@@ -9,7 +9,7 @@ export function FooterComponent() {
       <Container>
         <div className="top-links">
           <div className="show-1024">
-            <img src="/images/logo-footer.png" alt="Logo" />
+            <img src="/images/logo.png" alt="Logo" />
           </div>
 
           <div className="links">
@@ -151,15 +151,15 @@ export function FooterComponent() {
           <div className="links link-show-1024">
             <h3 className="paragraph-1-bold">Mapa do site</h3>
 
-            <Link href={"/produtos/?category=livros"} passHref>
+            <Link href={"/sobre-nos"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
-                Livros
+                Sobre nós
               </a>
             </Link>
 
-            <Link href={"/perfil/minhas-ordens"} passHref>
+            <Link href={"/atendimento-ao-cliente"} passHref>
               <a href="replaced" className="paragraph-1-regular link">
-                Meus Pedidos
+                Contato
               </a>
             </Link>
 
@@ -181,7 +181,7 @@ export function FooterComponent() {
               </a>
             </Link>
 
-            <div className="link">
+            {/* <div className="link">
               <p>
                 <strong>CNPJ:</strong> 41.544.345/0001-93
               </p>
@@ -193,10 +193,10 @@ export function FooterComponent() {
 
             <span className="paragraph-1-regular link time">
               Horário de atendimento das 09:00 às 17h00
-            </span>
+            </span> */}
           </div>
 
-          <div className="links redes">
+          {/* <div className="links redes">
             <h3 className="paragraph-1-bold">Redes sociais</h3>
 
             <div className="redes">
@@ -275,7 +275,7 @@ export function FooterComponent() {
                 </a>
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="payment-footer">
