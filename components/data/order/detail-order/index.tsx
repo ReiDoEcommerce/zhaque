@@ -188,7 +188,7 @@ export function DetailOrder({ order, isComplete }: OrderDetailProps) {
 
                         <h4 className="paragraph-1-bold">Total</h4>
 
-                        <span className="pink">{ToMoney(valorTotal * numerosSorteio.split(";").length)}</span>
+                        <span className="pink">{ToMoney(valorTotal)}</span>
                       </div>
                     </div>
                   );
