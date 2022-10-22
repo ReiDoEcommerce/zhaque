@@ -19,8 +19,6 @@ export function SelectAddress({ addressSelected, setAddressSelected }: SelectAdd
 
   return (
     <>
-
-
       <S.SelectAddress>
         {addressSelected && !listAddress && !newAddress && (
           <CardAddress addressSelected={addressSelected} setAddressSelected={setAddressSelected} addressInformations={addressSelected} />

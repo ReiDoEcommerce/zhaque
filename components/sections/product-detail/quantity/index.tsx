@@ -8,6 +8,7 @@ import { ICartItem } from "src/contexts/CartContext/intefaces/cart";
 import { LoaderCircle } from "components/data/loader-circle";
 
 import * as S from "./styles"
+import { OpenCart } from "src/utils/cartActions";
 
 interface QuantityProps {
     product: Product;
@@ -41,6 +42,8 @@ export function Quantity({ product }: QuantityProps) {
     }, [quantity])
 
     async function handleAddToCart() {
+        OpenCart();
+        
         if(thisItemInCart) {
 
            await PlusCart(thisItemInCart, quantity)
