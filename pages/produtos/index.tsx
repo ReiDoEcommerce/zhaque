@@ -138,7 +138,7 @@ export default function ShopPage({ products, categories }: ShopPageProps) {
               </div>
 
               {products.products.length === 0 && (
-                <h2 className="title-4-bold-cinzel">No results found</h2>
+                <h2 className="title-1-bold-cinzel">Nenhum produto por aqui.</h2>
               )}
 
               {pagination && (

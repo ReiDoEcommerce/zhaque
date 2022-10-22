@@ -23,15 +23,15 @@ const BreadCrumbList = [
 ];
 
 interface InformationPageProps {
-  information: PageInformationProps;
+  information: PageInformationProps | null;
 }
 
 export default function AtendimentoPage({ information }: InformationPageProps) {
   return (
     <Layout>
       <Head>
-        <title>{information.head.pageTitle}</title>
-        <meta name="description" content={information.head.metaDescription} />
+        <title>{information?.head.pageTitle}</title>
+        <meta name="description" content={information?.head.metaDescription} />
       </Head>
       
       <S.DinamicPage>
@@ -44,12 +44,12 @@ export default function AtendimentoPage({ information }: InformationPageProps) {
             <div className="form-atendimento">
               <div className="box-left">
                 <p>
-                  <strong>{information.item.titulo}</strong>
+                  <strong>{information?.item.titulo}</strong>
                 </p>
 
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: information.item.descricao,
+                    __html: information?.item.descricao || "",
                   }}
                 ></div>
               </div>
@@ -66,9 +66,7 @@ export default function AtendimentoPage({ information }: InformationPageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const informationsPage = await api.get<PageInformationProps>(
-    "pages/atendimento-ao-cliente"
-  );
+  const informationsPage = await api.get<PageInformationProps>("pages/atendimento-ao-cliente");
 
   return {
     props: {
